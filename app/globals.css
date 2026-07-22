@@ -3,21 +3,21 @@
 @theme {
   --color-primary: #0d600f;
   --color-primary-foreground: #ffffff;
+  --color-error: #ba1a1a;
+  --color-error-foreground: #ffffff;
+
   --color-background: #fcf9f1;
   --color-foreground: #1c1c17;
-  --color-surface: #ffffff;
-  --color-surface-dim: #dcdad2;
   --color-surface-variant: #e5e2da;
-  --color-muted: #f0eee6;
   --color-muted-foreground: #40493c;
   --color-border: #c0cab9;
-  
+
   --radius-sm: 0.25rem;
   --radius: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
-  
+
   --font-sans: var(--font-literata);
   --font-serif: var(--font-literata);
 }

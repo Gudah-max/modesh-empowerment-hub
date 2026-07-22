@@ -1,6 +1,0 @@
-{
-  "name": "Modesh Empowerment Hub",
-  "description": "Empowering individuals through the art of baking and community building.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

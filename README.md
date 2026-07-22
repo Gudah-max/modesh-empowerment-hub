@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Modesh Empowerment Hub
 
-# Run and deploy your AI Studio app
+Marketing website for **Modesh Empowerment Hub** — a baking and entrepreneurship training organization in Kisumu, Kenya, empowering marginalized individuals to build sustainable livelihoods.
 
-This contains everything you need to run your app locally.
+## Tech stack
 
-View your app in AI Studio: https://ai.studio/apps/7af7f8f0-7ab1-4650-bbb1-b4d9213a532b
+- [Next.js 15](https://nextjs.org/) (App Router) + React 19
+- TypeScript
+- Tailwind CSS v4 (CSS-first `@theme` config in `app/globals.css`)
+- [lucide-react](https://lucide.dev/) icons
+- Deployed on [Netlify](https://www.netlify.com/) via `@netlify/plugin-nextjs`
 
-## Run Locally
+## Local development
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+Open [http://localhost:3000](http://localhost:3000).
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Other scripts:
+
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # run ESLint
+```
+
+## Project structure
+
+- `app/` — routes (App Router). Each `page.tsx` sets metadata and renders a view component.
+- `components/` — view components (`HomeView`, `AboutView`, `ProgramsView`, `TeamView`, `GalleryView`, `ContactView`, `EnrollView`) plus `Header`, `Footer`, and shared pieces.
+- `public/images/` — image assets.
+- `app/globals.css` — design tokens and base styles.
+
+## Forms
+
+The **Contact** and **Enroll** forms submit through [Netlify Forms](https://docs.netlify.com/forms/setup/). Form definitions are mirrored in `public/__forms.html` so Netlify's build-time detection registers them; the live React forms post to `/` via `fetch`. Configure email notifications for new submissions in the Netlify dashboard (Forms → Settings & notifications).
+
+## Environment variables
+
+- `NEXT_PUBLIC_GA_ID` (optional) — a Google Analytics 4 measurement ID (`G-XXXXXXXXXX`). When set, analytics is loaded automatically; when unset, no analytics is loaded.
