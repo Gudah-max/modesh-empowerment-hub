@@ -1,7 +1,7 @@
 import { AboutView } from '@/components/AboutView';
 
 export const metadata = {
-  title: 'About | Modesh Empowerment Hub',
+  title: 'About',
   description: 'Our origin, mission, and vision.',
 };
 

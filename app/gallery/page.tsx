@@ -1,7 +1,7 @@
 import { GalleryView } from '@/components/GalleryView';
 
 export const metadata = {
-  title: 'Gallery | Modesh Empowerment Hub',
+  title: 'Gallery',
   description: 'Success stories and moments from our programs.',
 };
 

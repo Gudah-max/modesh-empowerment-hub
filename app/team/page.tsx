@@ -1,7 +1,7 @@
 import { TeamView } from '@/components/TeamView';
 
 export const metadata = {
-  title: 'Team | Modesh Empowerment Hub',
+  title: 'Team',
   description: 'Meet our dedicated team of instructors and support staff.',
 };
 
