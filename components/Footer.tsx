@@ -55,7 +55,7 @@ export function Footer() {
           <div className="mt-12 pt-6 border-t border-border/60 text-center text-xs text-foreground/50">
              Built and maintained by{' '}
              <a
-                href="https://vanta-digital.netlify.app/"
+                href="https://www.vantadigitalai.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors underline underline-offset-2"

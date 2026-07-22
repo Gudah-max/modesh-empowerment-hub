@@ -4,6 +4,7 @@ import './globals.css'; // Global styles
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Analytics } from '@/components/Analytics';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 const literata = Literata({
   subsets: ['latin'],
@@ -46,6 +47,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           {children}
         </main>
         <Footer />
+        <WhatsAppButton />
         <Analytics />
       </body>
     </html>
