@@ -18,6 +18,19 @@ export function Footer() {
                 <p className="text-foreground/70 mb-6">
                    Empowering individuals through the art of baking and community building.
                 </p>
+                <div className="flex items-center gap-3 mb-6">
+                   <a
+                      href="https://www.facebook.com/share/1HGk1Y66yA/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Follow Modesh Empowerment Hub on Facebook"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                   >
+                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true" focusable="false">
+                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                   </a>
+                </div>
                 <div className="text-sm text-foreground/60">
                    &copy; {new Date().getFullYear()} Modesh Empowerment Hub. All rights reserved.
                 </div>
