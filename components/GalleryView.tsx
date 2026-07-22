@@ -5,44 +5,38 @@ import { useState } from 'react';
 
 export function GalleryView() {
   const galleryItems = [
-    { src: '/images/2000_69e3e50d204b9.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e3e52038864.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/2000_69e3e548ab358.jpg.jpeg', category: 'Graduation' },
-    { src: '/images/2000_69e4aa1524e17.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e4aa22b5faf.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/2000_69e4aa52dc101.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e4aa52ded35.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/2000_69e4abfa84db8.jpg.jpeg', category: 'Graduation' },
-    { src: '/images/2000_69e4abfa86d6f.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e4abfa8a04b.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/2000_69e4abfa8b6c0.jpg.jpeg', category: 'Graduation' },
-    { src: '/images/2000_69e4abfa8cc50.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e4abfa8e21e.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/2000_69e4abfa8f794.jpg.jpeg', category: 'Graduation' },
-    { src: '/images/2000_69e4abfa92390.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e4abfa938c7.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/2000_69e4abfa9502f.jpg.jpeg', category: 'Graduation' },
-    { src: '/images/2000_69e4abfa97b47.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/2000_69e4abfa994b6.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/800_69e4aa52dd934.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/800_69e4abfa88694.jpg.jpeg', category: 'Masterpieces' },
-    { src: '/images/800_69e4abfa9be84.jpg.jpeg', category: 'In the Kitchen' },
-    { src: '/images/800_69e652c811435.jpg.jpeg', category: 'Graduation' },
+    { src: '/images/2000_69e3e50d204b9.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e3e52038864.jpeg', category: 'Masterpieces' },
+    { src: '/images/2000_69e3e548ab358.jpeg', category: 'Graduation' },
+    { src: '/images/2000_69e4aa1524e17.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e4aa22b5faf.jpeg', category: 'Masterpieces' },
+    { src: '/images/2000_69e4aa52dc101.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e4aa52ded35.jpeg', category: 'Masterpieces' },
+    { src: '/images/2000_69e4abfa84db8.jpeg', category: 'Graduation' },
+    { src: '/images/2000_69e4abfa86d6f.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e4abfa8a04b.jpeg', category: 'Masterpieces' },
+    { src: '/images/2000_69e4abfa8b6c0.jpeg', category: 'Graduation' },
+    { src: '/images/2000_69e4abfa8cc50.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e4abfa8e21e.jpeg', category: 'Masterpieces' },
+    { src: '/images/2000_69e4abfa8f794.jpeg', category: 'Graduation' },
+    { src: '/images/2000_69e4abfa92390.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e4abfa938c7.jpeg', category: 'Masterpieces' },
+    { src: '/images/2000_69e4abfa9502f.jpeg', category: 'Graduation' },
+    { src: '/images/2000_69e4abfa97b47.jpeg', category: 'In the Kitchen' },
+    { src: '/images/2000_69e4abfa994b6.jpeg', category: 'Masterpieces' },
+    { src: '/images/800_69e4aa52dd934.jpeg', category: 'Masterpieces' },
+    { src: '/images/800_69e4abfa88694.jpeg', category: 'Masterpieces' },
+    { src: '/images/800_69e4abfa9be84.jpeg', category: 'In the Kitchen' },
+    { src: '/images/800_69e652c811435.jpeg', category: 'Graduation' },
     { src: '/images/artisan_bread_making.jpeg', category: 'In the Kitchen' },
     { src: '/images/bakery_enterprenuership.jpeg', category: 'Masterpieces' },
     { src: '/images/bread_making.jpeg', category: 'Graduation' },
     { src: '/images/cake_decoration.jpeg', category: 'In the Kitchen' },
-    { src: '/images/hero_empoering_communities_small_image.jpeg', category: 'Masterpieces' },
-    { src: '/images/hero_image.jpeg', category: 'Graduation' },
-    { src: '/images/hero_image_1.jpeg', category: 'In the Kitchen' },
-    { src: '/images/hero_image_2.jpeg', category: 'Masterpieces' },
-    { src: '/images/john_doe.png', category: 'Graduation' },
-    { src: '/images/odera_a_ceo.png', category: 'In the Kitchen' },
-    { src: '/images/odera_moureen_director.png', category: 'Masterpieces' },
     { src: '/images/pastry_art.jpeg', category: 'Graduation' },
     { src: '/images/pastry_arts.jpeg', category: 'In the Kitchen' },
     { src: '/images/proffesional_baking.jpeg', category: 'Masterpieces' },
   ];
+  // TODO: replace arbitrary category assignments with real captions/categories once confirmed with the team.
 
   const categories = ['All Moments', 'In the Kitchen', 'Masterpieces', 'Graduation'];
   const [activeFilter, setActiveFilter] = useState('All Moments');
@@ -76,13 +70,12 @@ export function GalleryView() {
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredImages.map((item, i) => (
                <div key={i} className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-variant shadow-sm group">
-                  <Image 
-                     src={item.src} 
-                     alt={item.category} 
-                     fill 
+                  <Image
+                     src={item.src}
+                     alt={`${item.category} at Modesh Empowerment Hub`}
+                     fill
                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                      className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" 
-                     referrerPolicy="no-referrer" 
                   />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
                </div>

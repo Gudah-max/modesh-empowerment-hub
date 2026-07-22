@@ -6,20 +6,15 @@ export function TeamView() {
       name: 'Moureen Odera',
       role: 'DIRECTOR',
       desc: 'Moureen brings over 15 years of experience in community development and vocational training, steering Modesh with a steady hand and a compassionate heart.',
-      img: '/images/odera_moureen_director.png'
+      img: '/images/odera_moureen_director.jpg'
     },
     {
       name: 'A. Odera',
       role: 'CEO',
       desc: 'With a background in enterprise management, A. Odera ensures the hub remains financially sustainable while maximizing its social impact in the community.',
-      img: '/images/odera_a_ceo.png'
-    },
-    {
-      name: 'John Doe',
-      role: 'OFFICE MANAGER',
-      desc: 'John is the organizational heart of Modesh, coordinating daily operations and ensuring every student and partner feels welcomed and supported.',
-      img: '/images/john_doe.png'
+      img: '/images/odera_a_ceo.jpg'
     }
+    // TODO: add the Office Manager (and any other confirmed team members) once real names, photos, and bios are supplied.
   ];
 
   const partners = [
@@ -50,11 +45,11 @@ export function TeamView() {
                    <span className="absolute -bottom-4 left-1/2 w-16 h-1 -translate-x-1/2 bg-primary/20"></span>
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 max-w-3xl mx-auto">
                    {team.map((member, i) => (
                       <div key={i} className="bg-white border border-border rounded-lg overflow-hidden shadow-sm group">
                          <div className="relative h-80 w-full bg-surface-variant overflow-hidden">
-                            <Image src={member.img} alt={member.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105 motion-safe:group-hover:-translate-y-1" referrerPolicy="no-referrer" />
+                            <Image src={member.img} alt={member.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105 motion-safe:group-hover:-translate-y-1" />
                          </div>
                          <div className="p-8">
                             <h3 className="font-serif text-2xl font-semibold text-primary mb-1">{member.name}</h3>

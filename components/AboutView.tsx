@@ -31,11 +31,10 @@ export function AboutView() {
            </div>
            <div className="relative h-[500px] lg:h-[700px] w-full rounded-lg overflow-hidden bg-surface-variant shadow-sm border border-border/50">
              <Image 
-                src="/images/about_image.png" 
+                src="/images/about_image.jpg"
                 alt="About Modesh" 
                 fill 
                 className="object-cover" 
-                referrerPolicy="no-referrer" 
                 priority
              />
            </div>

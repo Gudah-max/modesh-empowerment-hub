@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { ArrowRight, Leaf } from 'lucide-react';
 
 const heroImages = [
-  "/images/hero_image.jpeg",
-  "/images/hero_image_1.jpeg",
-  "/images/hero_image_2.jpeg"
+  { src: "/images/hero_image.jpeg", alt: "Students learning to bake together at Modesh Empowerment Hub" },
+  { src: "/images/hero_image_1.jpeg", alt: "Freshly baked bread and pastries made by Modesh students" },
+  { src: "/images/hero_image_2.jpeg", alt: "A Modesh trainee shaping dough in the teaching kitchen" }
 ];
 
 export function HomeView() {
@@ -27,17 +27,16 @@ export function HomeView() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-8 relative rounded-lg overflow-hidden min-h-[500px] flex items-end p-8 sm:p-10">
-            {heroImages.map((src, index) => (
+            {heroImages.map((image, index) => (
               <Image
-                key={src}
-                src={src}
-                alt="Baking Hub"
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
                 fill
                 className={`object-cover absolute inset-0 -z-10 brightness-[0.65] transition-opacity duration-1000 ${
                   index === currentImageIndex ? 'opacity-100' : 'opacity-0'
                 }`}
                 sizes="100vw"
-                referrerPolicy="no-referrer"
                 priority={index === 0}
               />
             ))}
@@ -74,7 +73,6 @@ export function HomeView() {
                   alt="Empowering Communities"
                   fill
                   className="object-cover"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <Link href="/about" className="flex items-center gap-2 font-semibold uppercase tracking-wider text-sm hover:text-primary active:scale-[0.98] transition-all group w-fit outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1 -ml-1">
@@ -85,24 +83,19 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* Impact Stats */}
+      {/*
+        Impact section — qualitative for now.
+        TODO: reinstate headline numbers (graduates empowered, employment rate,
+        community bakeries started) once real, sourced figures are available.
+      */}
       <section className="bg-white py-20 lg:py-24 border-y border-border/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl font-semibold text-primary mb-12 lg:mb-16">Our Impact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
-             <div className="py-4">
-                <div className="font-serif text-5xl lg:text-6xl font-bold text-primary mb-2">500+</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Graduates Empowered</div>
-             </div>
-             <div className="py-4">
-                <div className="font-serif text-5xl lg:text-6xl font-bold text-primary mb-2">80%</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Employment Rate</div>
-             </div>
-             <div className="py-4">
-                <div className="font-serif text-5xl lg:text-6xl font-bold text-primary mb-2">5</div>
-                <div className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">New Community Bakeries</div>
-             </div>
-          </div>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-4xl font-semibold text-primary mb-6">Our Impact</h2>
+          <p className="text-lg text-foreground/80 leading-relaxed">
+            Every learner who walks through our doors leaves with more than a skill — they leave with confidence, a
+            livelihood, and a renewed sense of dignity. From first-time bakers to community entrepreneurs, our graduates
+            are building sustainable futures for themselves and their families across Kisumu and beyond.
+          </p>
         </div>
       </section>
 
@@ -137,7 +130,7 @@ export function HomeView() {
                ].map((program, i) => (
                   <div key={i} className="bg-white border border-border rounded-lg overflow-hidden group shadow-sm flex flex-col">
                      <div className="relative h-64 w-full bg-surface-variant overflow-hidden">
-                        <Image src={program.img} alt={program.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" referrerPolicy="no-referrer" />
+                        <Image src={program.img} alt={program.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" />
                         <div className="absolute top-4 left-4 bg-[#c0edcf] text-[#002112] px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm">
                            {program.tag}
                         </div>
