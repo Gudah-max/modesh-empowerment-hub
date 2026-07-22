@@ -1,7 +1,42 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
-import { MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
+import { MapPin, Mail, Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
+
+function encode(data: Record<string, string>) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
 
 export function ContactView() {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('submitting');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data: Record<string, string> = { 'form-name': 'contact' };
+    formData.forEach((value, key) => {
+      data[key] = value.toString();
+    });
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data),
+      });
+      if (!res.ok) throw new Error('Submission failed');
+      setStatus('success');
+      form.reset();
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <div className="w-full bg-background min-h-[calc(100vh-80px)] motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
@@ -64,8 +99,34 @@ export function ContactView() {
           {/* Right Column: Send a Message */}
           <div className="bg-primary/5 rounded-2xl p-8 lg:p-12 flex flex-col">
             <h2 className="font-serif text-2xl font-bold text-primary mb-8">Send a Message</h2>
-            
-            <form className="space-y-6 flex-1 flex flex-col">
+
+            {status === 'success' ? (
+              <div className="flex-1 flex flex-col items-center justify-center text-center py-8">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-primary mb-2">Message Sent</h3>
+                <p className="text-foreground/80 max-w-sm">
+                  Thank you for reaching out. We&apos;ll get back to you as soon as we can.
+                </p>
+              </div>
+            ) : (
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-6 flex-1 flex flex-col"
+            >
+              {/* Netlify form detection + honeypot */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="firstName" className="block text-xs font-semibold uppercase tracking-wider text-primary">First Name</label>
@@ -126,15 +187,24 @@ export function ContactView() {
                 ></textarea>
               </div>
 
+              {status === 'error' && (
+                <p className="text-error text-sm" role="alert">
+                  Something went wrong sending your message. Please try again, or email us directly at{' '}
+                  <a href="mailto:info@modeshempowermenthub.org" className="underline">info@modeshempowermenthub.org</a>.
+                </p>
+              )}
+
               <div>
-                <button 
-                  type="submit" 
-                  className="bg-primary text-primary-foreground px-8 py-3 rounded font-medium hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="bg-primary text-primary-foreground px-8 py-3 rounded font-medium hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {status === 'submitting' ? 'Sending…' : 'Send Message'}
                 </button>
               </div>
             </form>
+            )}
           </div>
         </div>
 

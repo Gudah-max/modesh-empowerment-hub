@@ -37,8 +37,8 @@ export function Footer() {
                 <ul className="space-y-2 text-foreground/70 flex flex-col items-start">
                    <li><Link href="/about" className="inline-block py-2 hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1 -ml-1">About Us</Link></li>
                    <li><Link href="/programs" className="inline-block py-2 hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1 -ml-1">Programs</Link></li>
-                   <li><Link href="/gallery" className="inline-block py-2 hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1 -ml-1">Success Stories</Link></li>
-                   <li><Link href="/team" className="inline-block py-2 hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1 -ml-1">Careers</Link></li>
+                   <li><Link href="/gallery" className="inline-block py-2 hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1 -ml-1">Gallery</Link></li>
+                   <li><Link href="/team" className="inline-block py-2 hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1 -ml-1">Our Team</Link></li>
                 </ul>
              </div>
 

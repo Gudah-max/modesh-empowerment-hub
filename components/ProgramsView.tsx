@@ -56,11 +56,11 @@ export function ProgramsView() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div id="courses" className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 scroll-mt-24">
            {programs.map((prog, i) => (
              <div key={i} className="bg-white border border-border/80 rounded-lg overflow-hidden flex flex-col shadow-sm">
                <div className="relative h-64 sm:h-72 w-full bg-surface-variant overflow-hidden">
-                  <Image src={prog.img} alt={prog.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 motion-safe:hover:scale-105" referrerPolicy="no-referrer" />
+                  <Image src={prog.img} alt={prog.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 motion-safe:hover:scale-105" />
                   <div className="absolute top-4 left-4 bg-[#c0edcf] text-[#002112] px-3.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm">
                      {prog.tag}
                   </div>
@@ -75,7 +75,7 @@ export function ProgramsView() {
                   <p className="text-foreground/80 mb-8 leading-relaxed md:h-20 line-clamp-3 md:line-clamp-none">{prog.desc}</p>
                   
                   <div className="mb-8 flex-1">
-                     <div className="text-xs font-semibold uppercase tracking-wider text-primary/60 mb-3 border-b border-border/50 pb-2">What you'll learn</div>
+                     <div className="text-xs font-semibold uppercase tracking-wider text-primary/60 mb-3 border-b border-border/50 pb-2">What you&apos;ll learn</div>
                      <ul className="space-y-3">
                         {prog.list.map((item, j) => (
                           <li key={j} className="flex gap-3 text-sm text-foreground/80">
@@ -85,8 +85,8 @@ export function ProgramsView() {
                         ))}
                      </ul>
                   </div>
-                  <Link href={`/programs/${prog.title.toLowerCase().replace(/\s+/g, '-')}`} className="block text-center w-full py-3.5 border border-border/80 rounded font-medium hover:bg-surface-variant/50 active:scale-[0.98] transition-all text-primary uppercase tracking-wider text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-                     Course Details
+                  <Link href={`/enroll?course=${prog.title.toLowerCase().replace(/\s+/g, '-')}`} className="block text-center w-full py-3.5 border border-border/80 rounded font-medium hover:bg-surface-variant/50 active:scale-[0.98] transition-all text-primary uppercase tracking-wider text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                     Enroll in this Course
                   </Link>
                </div>
              </div>
@@ -94,7 +94,7 @@ export function ProgramsView() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28 border-t border-border/50">
+      <section id="enrollment" className="bg-white py-20 lg:py-28 border-t border-border/50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-24">
               <h2 className="font-serif text-4xl font-bold text-primary mb-4">How to Join Modesh</h2>
