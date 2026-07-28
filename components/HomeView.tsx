@@ -6,9 +6,12 @@ import Link from 'next/link';
 import { ArrowRight, Leaf } from 'lucide-react';
 
 const heroImages = [
-  { src: "/images/hero_image.jpeg", alt: "Students learning to bake together at Modesh Empowerment Hub" },
-  { src: "/images/hero_image_1.jpeg", alt: "Freshly baked bread and pastries made by Modesh students" },
-  { src: "/images/hero_image_2.jpeg", alt: "A Modesh trainee shaping dough in the teaching kitchen" }
+  { src: "/images/hero-3.jpeg", alt: "A display of elegant multi-tier wedding cakes decorated by Modesh Empowerment Hub students" },
+  { src: "/images/hero-2.jpeg", alt: "Modesh bakers in aprons plating fresh pastries at an event" },
+  { src: "/images/hero-4.jpeg", alt: "Modesh Empowerment Hub trainees seated together at a baking masterclass" },
+  { src: "/images/hero-9.jpeg", alt: "A Modesh instructor leading a wedding cake masterclass" },
+  { src: "/images/hero-5.jpeg", alt: "A trainee receiving a hand mixer during a Modesh graduation ceremony" },
+  { src: "/images/hero-6.jpeg", alt: "A student receiving baking tools at a Modesh wedding cake masterclass" }
 ];
 
 export function HomeView() {
