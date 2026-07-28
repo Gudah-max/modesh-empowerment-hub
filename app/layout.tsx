@@ -1,14 +1,22 @@
 import type {Metadata} from 'next';
-import { Literata } from 'next/font/google';
+import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css'; // Global styles
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Analytics } from '@/components/Analytics';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 
-const literata = Literata({
+// Editorial pairing: elegant display serif for headings, clean sans for body/UI.
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-literata',
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 const siteUrl = 'https://modeshempowermenthub.org';
@@ -40,8 +48,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`${literata.variable}`}>
-      <body className="bg-background text-foreground font-serif antialiased min-h-screen flex flex-col" suppressHydrationWarning>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col" suppressHydrationWarning>
         <Header />
         <main className="flex-1 shrink-0">
           {children}

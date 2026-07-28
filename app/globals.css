@@ -18,8 +18,10 @@
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
 
-  --font-sans: var(--font-literata);
-  --font-serif: var(--font-literata);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  --animate-kenburns: kenburns 7s ease-out both;
 }
 
 @layer base {
@@ -27,5 +29,14 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     border-color: var(--color-border);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
   }
 }

@@ -14,47 +14,80 @@ const heroImages = [
   { src: "/images/hero-6.jpeg", alt: "A student receiving baking tools at a Modesh wedding cake masterclass" }
 ];
 
+const partners = [
+  { name: 'GIZ', src: '/images/giz_logo.png' },
+  { name: 'FAO', src: '/images/fao_logo.png' },
+  { name: 'SHOFCO', src: '/images/shofco_logo.png' },
+  { name: 'NITA', src: '/images/nita_logo.png' },
+  { name: 'SOMO', src: '/images/somo_logo.png' },
+  { name: 'KIDI', src: '/images/kenya_industrial_development_institute_logo.png' },
+];
+
 export function HomeView() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   return (
     <div className="w-full h-full motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-8 relative rounded-lg overflow-hidden min-h-[500px] flex items-end p-8 sm:p-10">
+          <div
+            className="lg:col-span-8 relative rounded-lg overflow-hidden min-h-[520px] lg:min-h-[600px] flex items-end p-8 sm:p-12"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             {heroImages.map((image, index) => (
               <Image
                 key={image.src}
                 src={image.src}
                 alt={image.alt}
                 fill
-                className={`object-cover absolute inset-0 -z-10 brightness-[0.65] transition-opacity duration-1000 ${
-                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                className={`object-cover absolute inset-0 -z-10 transition-opacity duration-1000 ${
+                  index === currentImageIndex ? 'opacity-100 motion-safe:animate-kenburns' : 'opacity-0'
                 }`}
-                sizes="100vw"
+                sizes="(max-width: 1024px) 100vw, 66vw"
                 priority={index === 0}
               />
             ))}
+            {/* Directional scrim: dark where the text sits, clear elsewhere */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/40 to-transparent" />
+
             <div className="max-w-xl text-white relative z-10">
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.15] mb-6 drop-shadow-md">
+              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-7 drop-shadow-lg">
                 Where Baking Builds Dignified Lives
               </h1>
               <div className="flex flex-wrap gap-4">
-                <Link href="/enroll" className="bg-primary text-primary-foreground px-6 py-3 rounded font-medium hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
+                <Link href="/enroll" className="bg-primary text-primary-foreground px-7 py-3.5 rounded font-medium hover:bg-primary/90 active:scale-[0.98] transition-all shadow-lg outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
                   Enroll Now
                 </Link>
-                <Link href="/programs" className="bg-transparent border border-white text-white px-6 py-3 rounded font-medium hover:bg-white/10 active:scale-[0.98] transition-all outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
+                <Link href="/programs" className="bg-white/10 backdrop-blur-sm border border-white/70 text-white px-7 py-3.5 rounded font-medium hover:bg-white/20 active:scale-[0.98] transition-all outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
                   Learn More
                 </Link>
               </div>
+            </div>
+
+            {/* Slide indicators */}
+            <div className="absolute bottom-6 right-6 z-10 flex gap-2.5">
+              {heroImages.map((image, index) => (
+                <button
+                  key={image.src}
+                  onClick={() => setCurrentImageIndex(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={index === currentImageIndex}
+                  className={`h-2 rounded-full transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
+                    index === currentImageIndex ? 'w-7 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'
+                  }`}
+                />
+              ))}
             </div>
           </div>
           
@@ -82,6 +115,25 @@ export function HomeView() {
                 Our Story <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust strip — institutional partners */}
+      <section className="border-y border-border/50 bg-white/60 py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
+            In partnership with
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 lg:gap-x-16">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="relative h-10 w-24 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              >
+                <Image src={partner.src} alt={partner.name} fill className="object-contain" sizes="96px" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
