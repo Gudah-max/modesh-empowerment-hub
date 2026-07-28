@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export function GalleryView() {
-  const galleryItems = [
+  const galleryItems: { src: string; category: string; alt?: string }[] = [
     { src: '/images/2000_69e3e50d204b9.jpeg', category: 'In the Kitchen' },
     { src: '/images/2000_69e3e52038864.jpeg', category: 'Masterpieces' },
     { src: '/images/2000_69e3e548ab358.jpeg', category: 'Graduation' },
@@ -35,6 +35,9 @@ export function GalleryView() {
     { src: '/images/pastry_art.jpeg', category: 'Graduation' },
     { src: '/images/pastry_arts.jpeg', category: 'In the Kitchen' },
     { src: '/images/proffesional_baking.jpeg', category: 'Masterpieces' },
+    { src: '/images/hero-1.jpeg', category: 'Masterpieces', alt: 'A row of elegant multi-tier wedding cakes with sugar flowers made by Modesh students' },
+    { src: '/images/hero-7.jpeg', category: 'Graduation', alt: 'Guests tasting dessert cups at the Modesh Wedding Cake Master Class' },
+    { src: '/images/hero-8.jpeg', category: 'Graduation', alt: 'A guest enjoying a dessert at a Modesh Empowerment Hub event' },
   ];
   // TODO: replace arbitrary category assignments with real captions/categories once confirmed with the team.
 
@@ -72,7 +75,7 @@ export function GalleryView() {
                <div key={i} className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-variant shadow-sm group">
                   <Image
                      src={item.src}
-                     alt={`${item.category} at Modesh Empowerment Hub`}
+                     alt={item.alt ?? `${item.category} at Modesh Empowerment Hub`}
                      fill
                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                      className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" 
