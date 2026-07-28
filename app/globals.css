@@ -22,6 +22,7 @@
   --font-serif: var(--font-playfair);
 
   --animate-kenburns: kenburns 7s ease-out both;
+  --animate-marquee: marquee 40s linear infinite;
 }
 
 @layer base {
@@ -38,5 +39,15 @@
   }
   to {
     transform: scale(1.08);
+  }
+}
+
+/* Track holds two identical logo sets; -50% scrolls exactly one set for a seamless loop */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

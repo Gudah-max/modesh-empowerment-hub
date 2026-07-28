@@ -21,6 +21,8 @@ const partners = [
   { name: 'NITA', src: '/images/nita_logo.png' },
   { name: 'SOMO', src: '/images/somo_logo.png' },
   { name: 'KIDI', src: '/images/kenya_industrial_development_institute_logo.png' },
+  { name: 'World Travel', src: '/images/world_travel_logo.png' },
+  { name: 'Cloud Solution', src: '/images/cloud_solution_logo.png' },
 ];
 
 export function HomeView() {
@@ -119,19 +121,24 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* Trust strip — institutional partners */}
-      <section className="border-y border-border/50 bg-white/60 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
-            In partnership with
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 lg:gap-x-16">
-            {partners.map((partner) => (
+      {/* Trust strip — institutional partners, auto-scrolling */}
+      <section className="border-y border-border/50 bg-background py-10">
+        <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
+          In partnership with
+        </p>
+        <div className="group relative overflow-hidden">
+          {/* Edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-background to-transparent" />
+
+          <div className="flex w-max items-center motion-safe:animate-marquee motion-safe:group-hover:[animation-play-state:paused] motion-reduce:flex-wrap motion-reduce:w-full motion-reduce:justify-center">
+            {[...partners, ...partners].map((partner, i) => (
               <div
-                key={partner.name}
-                className="relative h-10 w-24 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                key={i}
+                aria-hidden={i >= partners.length}
+                className={`relative h-12 w-28 shrink-0 mx-8 sm:mx-10 ${i >= partners.length ? 'motion-reduce:hidden' : ''}`}
               >
-                <Image src={partner.src} alt={partner.name} fill className="object-contain" sizes="96px" />
+                <Image src={partner.src} alt={partner.name} fill className="object-contain" sizes="112px" />
               </div>
             ))}
           </div>
