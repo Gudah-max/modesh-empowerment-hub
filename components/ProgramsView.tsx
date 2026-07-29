@@ -35,6 +35,14 @@ export function ProgramsView() {
       desc: 'Turn your passion into a business. This course covers business planning, costing, marketing, and the operational logistics of running a bakery.',
       list: ['Business Plan Development', 'Costing & Pricing Strategy', 'Brand & Marketing'],
       img: '/images/bakery_enterprenuership.jpeg'
+    },
+    {
+      title: 'Wedding Master Class',
+      tag: 'Advanced',
+      duration: '4 Weeks',
+      desc: 'Master the art of wedding cake creation — from structural baking to elegant fondant finishing — and learn to design showstopping tiered cakes for a client\'s biggest day.',
+      list: ['Baking and Decoration', 'Trimming and Crumb Coating', 'Fondanting and Stenciling', 'Tiering and Dowelling', 'Edible Flowers and Presentation'],
+      img: '/images/hero-3.jpeg'
     }
   ];
 

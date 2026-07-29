@@ -10,6 +10,7 @@ const courses = [
   { slug: 'pastry-arts', label: 'Pastry Arts' },
   { slug: 'artisan-bread-making', label: 'Artisan Bread Making' },
   { slug: 'bakery-entrepreneurship', label: 'Bakery Entrepreneurship' },
+  { slug: 'wedding-master-class', label: 'Wedding Master Class' },
 ];
 
 const selectChevron = {
