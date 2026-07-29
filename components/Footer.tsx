@@ -71,7 +71,7 @@ export function Footer() {
                 href="https://www.vantadigitalai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors underline underline-offset-2"
+                className="text-primary font-semibold hover:text-primary/80 transition-colors underline underline-offset-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
              >
                 Vanta Digital
              </a>
