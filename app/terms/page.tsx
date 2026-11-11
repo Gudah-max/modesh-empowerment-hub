@@ -1,9 +1,7 @@
+import { pageMetadata } from '@/lib/metadata';
 import { LegalPage } from '@/components/LegalPage';
 
-export const metadata = {
-  title: 'Terms of Service',
-  description: 'The terms that govern your use of the Modesh Empowerment Hub website and services.',
-};
+export const metadata = pageMetadata('/terms', 'Terms of Service', 'Read the terms for using the Modesh Empowerment Hub website and expressing interest in its programs.');
 
 export default function TermsPage() {
   return (

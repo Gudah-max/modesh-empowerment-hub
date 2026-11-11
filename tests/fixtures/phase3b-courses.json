@@ -1,0 +1,69 @@
+[
+  {
+    "id": "professional-baking",
+    "title": "Professional Baking",
+    "tag": "Beginner to Advanced",
+    "duration": "12 Weeks",
+    "desc": "Master the fundamentals of baking cakes, cookies, and patisserie. From understanding basic ingredients to executing advanced presentation techniques.",
+    "list": [
+      "Ingredient Science & Measurement",
+      "Classic Cake Formulation",
+      "Commercial Baking Standards"
+    ],
+    "img": "/images/proffesional_baking.jpeg"
+  },
+  {
+    "id": "pastry-arts",
+    "title": "Pastry Arts",
+    "tag": "Intermediate",
+    "duration": "8 Weeks",
+    "desc": "Dive deep into the world of delicate desserts. Master chocolate work, sugarcraft, and high-end dessert presentation suitable for fine dining.",
+    "list": [
+      "Chocolate Tempering & Sculpting",
+      "Advanced Sugarcraft",
+      "Plated Dessert Design"
+    ],
+    "img": "/images/pastry_art.jpeg"
+  },
+  {
+    "id": "artisan-bread-making",
+    "title": "Artisan Bread Making",
+    "tag": "All Levels",
+    "duration": "6 Weeks",
+    "desc": "Explore traditional and modern bread techniques. Learn the secrets of sourdough, laminated doughs, and commercial yeast breads.",
+    "list": [
+      "Sourdough Starter Cultivation",
+      "Viennoiserie & Lamination",
+      "Baking Chemistry"
+    ],
+    "img": "/images/artisan_bread_making.jpeg"
+  },
+  {
+    "id": "bakery-entrepreneurship",
+    "title": "Bakery Entrepreneurship",
+    "tag": "Business Focus",
+    "duration": "4 Weeks",
+    "desc": "Turn your passion into a business. This course covers business planning, costing, marketing, and the operational logistics of running a bakery.",
+    "list": [
+      "Business Plan Development",
+      "Costing & Pricing Strategy",
+      "Brand & Marketing"
+    ],
+    "img": "/images/bakery_enterprenuership.jpeg"
+  },
+  {
+    "id": "wedding-master-class",
+    "title": "Wedding Master Class",
+    "tag": "Advanced",
+    "duration": "4 Weeks",
+    "desc": "Master the art of wedding cake creation — from structural baking to elegant fondant finishing — and learn to design showstopping tiered cakes for a client's biggest day.",
+    "list": [
+      "Baking and Decoration",
+      "Trimming and Crumb Coating",
+      "Fondanting and Stenciling",
+      "Tiering and Dowelling",
+      "Edible Flowers and Presentation"
+    ],
+    "img": "/images/hero-3.jpeg"
+  }
+]

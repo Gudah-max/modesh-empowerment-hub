@@ -1,0 +1,68 @@
+/* Phase 3B: these rules affect only the Programs and Enrollment page roots. */
+.training-page :is(.training-intro, .course-topics) { overflow-wrap: anywhere; }
+.training-page .training-intro { max-width: 65ch; }
+.training-page .training-title { font-family: var(--font-playfair), Georgia, serif; font-size: var(--text-hero); font-weight: 700; line-height: 1.12; letter-spacing: -.02em; color: var(--color-forest); text-wrap: balance; overflow-wrap: anywhere; }
+.training-page .training-catalogue { padding-top: 0; }
+.training-page .training-course-grid { display: grid; gap: 1.5rem; }
+.training-page .training-course { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: .75rem; background: var(--color-surface); }
+.training-page .course-photo { position: relative; aspect-ratio: 4 / 3; }
+.training-page .course-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; min-width: 0; padding: 1.5rem; }
+.training-page .course-body h2 { font-family: var(--font-playfair), Georgia, serif; font-size: var(--text-card); font-weight: 600; line-height: 1.25; color: var(--color-forest); overflow-wrap: anywhere; }
+.training-page .course-facts { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-block: 1rem; }
+.training-page .course-facts dt { font-size: .875rem; color: var(--color-muted-foreground); }
+.training-page .course-facts dd { font-weight: 600; color: var(--color-forest); }
+.training-page .course-description { color: var(--color-muted-foreground); margin-bottom: 1.5rem; }
+.training-page .course-body h3 { font-size: 1rem; font-weight: 600; color: var(--color-forest); }
+.training-page .course-topics { list-style: disc; padding-left: 1.25rem; margin-block: .75rem 1.5rem; }
+.training-page .course-topics li { padding-left: .25rem; margin-block: .5rem; }
+.training-page .course-enroll { margin-top: auto; width: 100%; }
+.training-page .joining-steps { display: grid; gap: 1.5rem; margin-block: 2rem; }
+.training-page .joining-steps li { padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.training-page .joining-steps h3 { font-family: var(--font-playfair), Georgia, serif; font-size: var(--text-card); font-weight: 600; line-height: 1.25; color: var(--color-forest); margin-bottom: .75rem; }
+.training-page .joining-steps p { color: var(--color-muted-foreground); }
+.training-page .enrollment-section { padding-top: 0; }
+.training-page .enrollment-layout { display: grid; gap: 2rem; align-items: start; }
+.training-page .enrollment-form, .training-page .enrollment-confirmation { min-width: 0; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: .75rem; background: var(--color-surface); }
+.training-page .form-guidance { color: var(--color-muted-foreground); margin-block: 1rem 2rem; }
+.training-page .enrollment-form fieldset { min-width: 0; margin-bottom: 2rem; }
+.training-page .enrollment-form legend { width: 100%; font-weight: 600; color: var(--color-forest); padding-bottom: .75rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-border); }
+.training-page .enrollment-field-grid { display: grid; gap: 1.5rem; }
+.training-page .enrollment-field { min-width: 0; }
+.training-page .enrollment-field + .enrollment-field { margin-top: 1.5rem; }
+.training-page .enrollment-field-grid .enrollment-field { margin-top: 0; }
+.training-page .enrollment-field label { display: block; margin-bottom: .5rem; font-size: 1rem; font-weight: 600; }
+.training-page .enrollment-field label span { color: var(--color-muted-foreground); font-size: .875rem; font-weight: 400; }
+.training-page .enrollment-field :is(input, select, textarea) { display: block; width: 100%; min-width: 0; min-height: 3rem; padding: .75rem; border: 1px solid var(--color-control-border); border-radius: .5rem; background: var(--color-surface); color: var(--color-foreground); font: inherit; font-size: 1rem; line-height: 1.5; caret-color: var(--color-primary); }
+.training-page .enrollment-field textarea { resize: vertical; }
+.training-page .enrollment-field input::placeholder { color: var(--color-muted-foreground); opacity: 1; }
+.training-page .enrollment-field :is(input, select, textarea):focus-visible { border-color: var(--color-primary); outline: 2px solid var(--color-primary); outline-offset: 3px; }
+.training-page .field-help { font-size: .875rem; color: var(--color-muted-foreground); margin-top: .5rem; }
+.training-page :is(.field-help, .application-privacy, .enrollment-error) a { color: var(--color-primary); text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.training-page .application-privacy { font-size: .875rem; color: var(--color-muted-foreground); margin-block: 1.5rem; }
+.training-page .enrollment-error { padding: 1rem; border: 1px solid var(--color-error); border-radius: .5rem; color: var(--color-error); margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+.training-page .enrollment-error:focus, .training-page .enrollment-confirmation h2:focus { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+.training-page .enrollment-submit button:disabled { opacity: .6; cursor: wait; }
+.training-page .enrollment-submit button:disabled:hover { background: var(--color-primary); }
+.training-page .enrollment-help { min-width: 0; padding: 1.5rem; border-radius: .75rem; background: var(--color-soft-green); }
+.training-page .enrollment-help h2 { font-family: var(--font-playfair), Georgia, serif; font-size: var(--text-card); font-weight: 600; color: var(--color-forest); line-height: 1.25; }
+.training-page .enrollment-help h3 { font-weight: 600; color: var(--color-forest); margin-bottom: .5rem; }
+.training-page .enrollment-help > div { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.training-page .enrollment-help p { color: var(--color-muted-foreground); margin-bottom: .75rem; }
+.training-page .enrollment-help .button-link { display: flex; width: fit-content; }
+.training-page .enrollment-confirmation > :is(h2, p) { margin-top: 1.25rem; }
+.training-page .enrollment-confirmation { grid-column: 1 / -1; max-width: 52rem; }
+.training-page .enrollment-confirmation p { max-width: 65ch; }
+@media (min-width: 640px) {
+  .training-page .enrollment-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .training-page .enrollment-form, .training-page .enrollment-confirmation, .training-page .enrollment-help { padding: 2rem; }
+}
+@media (min-width: 768px) {
+  .training-page .training-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .training-page .training-course:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .training-page .training-course:last-child .course-photo { aspect-ratio: auto; }
+  .training-page .joining-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+}
+@media (min-width: 1024px) {
+  .training-page .enrollment-layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 3rem; }
+  .training-page .course-body { padding: 2rem; }
+}

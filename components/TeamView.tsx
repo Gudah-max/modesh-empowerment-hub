@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import { Section } from './ui/Section';
+import { PageIntro } from './ui/PageIntro';
+import { ButtonLink } from './ui/ButtonLink';
 
 export function TeamView() {
   const team = [
@@ -29,58 +32,23 @@ export function TeamView() {
   ];
 
   return (
-    <div className="w-full motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500">
-       <section className="bg-background py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <div className="text-center max-w-2xl mx-auto mb-20 lg:mb-28">
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6">Our People & Partners</h1>
-                <p className="text-lg text-foreground/80 leading-relaxed">
-                  Meet the dedicated leadership team guiding Modesh Empowerment Hub, and discover the invaluable partners who help make our vision a reality.
-                </p>
-             </div>
-
-             <div className="mb-24 lg:mb-32">
-                <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-primary text-center mb-16 relative inline-block left-1/2 -translate-x-1/2">
-                   The Leadership Team
-                   <span className="absolute -bottom-4 left-1/2 w-16 h-1 -translate-x-1/2 bg-primary/20"></span>
-                </h2>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 max-w-3xl mx-auto">
-                   {team.map((member, i) => (
-                      <div key={i} className="bg-white border border-border rounded-lg overflow-hidden shadow-sm group">
-                         <div className="relative h-80 w-full bg-surface-variant overflow-hidden">
-                            <Image src={member.img} alt={member.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105 motion-safe:group-hover:-translate-y-1" />
-                         </div>
-                         <div className="p-8">
-                            <h3 className="font-serif text-2xl font-semibold text-primary mb-1">{member.name}</h3>
-                            <div className="text-sm font-semibold tracking-wider text-primary/70 uppercase mb-4">{member.role}</div>
-                            <p className="text-foreground/80 leading-relaxed">{member.desc}</p>
-                         </div>
-                      </div>
-                   ))}
-                </div>
-             </div>
-
-             <div>
-                <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-primary text-center mb-12">Our Partners</h2>
-                <div className="text-center max-w-3xl mx-auto mb-16 text-lg text-foreground/80 leading-relaxed">
-                   We are deeply grateful for the unwavering support of our institutional partners. Their commitment empowers us to provide high-quality training and build a stronger, more resilient community.
-                </div>
-                
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8 max-w-5xl mx-auto">
-                   {partners.map((partner, i) => (
-                     <div key={i} className="bg-white aspect-square rounded-full border border-border flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 shadow-sm hover:shadow p-4 text-center overflow-hidden relative">
-                        {partner.src ? (
-                           <Image src={partner.src} alt={partner.name} fill className="object-contain p-6" />
-                        ) : (
-                           <span className="font-serif text-xl sm:text-2xl font-bold text-primary/50 tracking-widest uppercase">{partner.name}</span>
-                        )}
-                     </div>
-                   ))}
-                </div>
-             </div>
-          </div>
-       </section>
+    <div className="institution-page training-page">
+      <Section><PageIntro title="Our People & Partners"><p>Meet the dedicated leadership team guiding Modesh Empowerment Hub, and discover the invaluable partners who help make our vision a reality.</p></PageIntro></Section>
+      <Section aria-labelledby="leadership-title" className="institution-content-start">
+        <h2 id="leadership-title" className="section-title">The Leadership Team</h2>
+        <div className="leadership-grid">
+          {team.map(member => <article key={member.name} className="leadership-profile">
+            <div className="leadership-photo"><Image src={member.img} alt={member.name} fill sizes="(min-width: 1280px) 596px, (min-width: 768px) 46vw, 92vw" className="object-contain" /></div>
+            <div className="leadership-copy"><h3>{member.name}</h3><p className="leadership-role">{member.role}</p><p>{member.desc}</p></div>
+          </article>)}
+        </div>
+      </Section>
+      <Section aria-labelledby="team-partners-title" className="bg-surface">
+        <h2 id="team-partners-title" className="section-title">Our Partners</h2>
+        <p className="section-lead">We are deeply grateful for the unwavering support of our institutional partners. Their commitment empowers us to provide high-quality training and build a stronger, more resilient community.</p>
+        <div className="institution-partners">{partners.map(partner => <div key={partner.name} className="institution-partner"><Image src={partner.src} alt={partner.name} fill sizes="(min-width: 768px) 22vw, 44vw" className="object-contain" /></div>)}</div>
+        <div className="home-actions"><ButtonLink href="/about" variant="inline">Our Story</ButtonLink><ButtonLink href="/contact" variant="secondary">Contact Modesh</ButtonLink></div>
+      </Section>
     </div>
   );
 }

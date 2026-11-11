@@ -1,9 +1,7 @@
+import { pageMetadata } from '@/lib/metadata';
 import { LegalPage } from '@/components/LegalPage';
 
-export const metadata = {
-  title: 'Privacy Policy',
-  description: 'How Modesh Empowerment Hub collects, uses, and protects your personal information.',
-};
+export const metadata = pageMetadata('/privacy', 'Privacy Policy', 'Read how Modesh Empowerment Hub handles information submitted through its website forms.');
 
 export default function PrivacyPage() {
   return (

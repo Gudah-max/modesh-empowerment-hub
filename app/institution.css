@@ -1,0 +1,77 @@
+/* Phase 3C: scoped extensions of the approved training and shared primitives. */
+.institution-page .institution-content-start { padding-top: 0; }
+.institution-page .about-story-layout { display: grid; gap: 2rem; align-items: center; }
+.institution-page .about-story-copy { max-width: 62ch; font-size: clamp(1rem, .95rem + .2vw, 1.125rem); line-height: 1.75; margin-top: 1.5rem; }
+.institution-page .about-story-copy p + p { margin-top: 1.25rem; }
+.institution-page .story-attribution { font-style: italic; font-weight: 500; }
+.institution-page .about-story-photo { width: 100%; height: auto; max-width: 36rem; border-radius: 1rem; justify-self: center; }
+.institution-page .purpose-grid { display: grid; gap: 2rem; margin-top: 2rem; }
+.institution-page .purpose-grid > section { min-width: 0; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.institution-page :is(.purpose-grid h3, .leadership-copy h3, .contact-confirmation h3) { font-family: var(--font-playfair), Georgia, serif; color: var(--color-forest); font-size: var(--text-card); font-weight: 600; line-height: 1.25; margin-bottom: 1rem; }
+.institution-page .purpose-grid p { max-width: 65ch; }
+.institution-page .purpose-grid ul { list-style: disc; padding-left: 1.25rem; margin-top: 1.5rem; }
+.institution-page .purpose-grid li + li { margin-top: .75rem; }
+.institution-page .leadership-grid { display: grid; gap: 1.5rem; max-width: 68rem; margin-top: 2rem; }
+.institution-page .leadership-profile { min-width: 0; border: 1px solid var(--color-border); border-radius: .75rem; overflow: hidden; background: var(--color-surface); }
+.institution-page .leadership-photo { position: relative; aspect-ratio: 1; background: var(--color-surface); }
+.institution-page .leadership-copy { padding: 1.5rem; }
+.institution-page .leadership-copy h3 { margin-bottom: .5rem; }
+.institution-page .leadership-role { color: var(--color-primary); font-weight: 600; margin-bottom: 1rem; }
+.institution-page .institution-partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+.institution-page .institution-partner { position: relative; height: 9rem; min-width: 0; border: 1px solid var(--color-border); border-radius: .75rem; background: var(--color-surface); }
+.institution-page .institution-partner img { padding: 1.5rem; }
+.institution-page .gallery-filters { display: flex; flex-wrap: wrap; gap: .75rem; }
+.institution-page .gallery-filters button { min-height: 3rem; max-width: 100%; padding: .75rem 1.25rem; border: 1px solid var(--color-control-border); border-radius: .5rem; font-weight: 600; background: var(--color-surface); color: var(--color-primary); }
+.institution-page .gallery-filters button:hover { background: var(--color-soft-green); }
+.institution-page .gallery-filters button[aria-pressed="true"] { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-primary-foreground); }
+.institution-page .gallery-count { color: var(--color-muted-foreground); margin-block: 1.5rem; font-size: .875rem; }
+.institution-page .gallery-grid { columns: 1; column-gap: 1.5rem; }
+.institution-page .gallery-grid button { display: block; width: 100%; break-inside: avoid; padding: 0; margin-bottom: 1.5rem; border-radius: .75rem; overflow: hidden; background: var(--color-surface-variant); cursor: zoom-in; }
+.institution-page .gallery-grid img { width: 100%; height: auto; }
+.institution-page .gallery-viewer { margin: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none; padding: 1rem; border: 0; background: var(--color-foreground); color: var(--color-background); }
+.institution-page .gallery-viewer[open] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; gap: 1rem; }
+.institution-page .viewer-toolbar { display: flex; justify-content: flex-end; }
+.institution-page .gallery-viewer button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3rem; padding: .625rem 1rem; border: 1px solid var(--color-background); border-radius: .5rem; color: var(--color-background); font-weight: 600; }
+.institution-page .gallery-viewer button:hover { background: var(--color-background); color: var(--color-foreground); }
+.institution-page .gallery-viewer button:focus-visible { outline: 2px solid var(--color-background); outline-offset: 4px; }
+.institution-page .gallery-viewer svg { flex-shrink: 0; }
+.institution-page .viewer-photo { position: relative; min-height: 0; }
+.institution-page .viewer-footer { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
+.institution-page .viewer-footer [role="status"] { max-width: 65ch; font-size: .875rem; line-height: 1.5; }
+.institution-page .viewer-footer [role="status"] p + p { margin-top: .25rem; }
+.institution-page .viewer-navigation { display: flex; flex-wrap: wrap; gap: 1rem; }
+.institution-page .contact-layout { display: grid; gap: 2rem; align-items: start; }
+.institution-page :is(.contact-details, .contact-message) { min-width: 0; padding: 1.5rem; border-radius: .75rem; }
+.institution-page .contact-details { background: var(--color-soft-green); }
+.institution-page .contact-details > div { border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-top: 1.5rem; }
+.institution-page .contact-details h3 { color: var(--color-forest); font-weight: 600; margin-bottom: .5rem; }
+.institution-page .contact-details address { font-style: normal; }
+.institution-page .contact-details a { max-width: 100%; overflow-wrap: anywhere; }
+.institution-page .contact-details > div a { color: var(--color-primary); text-decoration: underline; text-underline-offset: .2em; }
+.institution-page .contact-details > .button-link { margin-top: 1.5rem; }
+.institution-page .contact-hours > div { display: flex; flex-wrap: wrap; gap: .25rem 1rem; justify-content: space-between; }
+.institution-page .contact-hours > div + div { margin-top: .75rem; }
+.institution-page .contact-hours dd { font-variant-numeric: tabular-nums; }
+.institution-page .contact-message { border: 1px solid var(--color-border); background: var(--color-surface); }
+.institution-page .contact-message form { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.institution-page .contact-message :is(.form-guidance, .enrollment-field, .application-privacy, .enrollment-error) { margin: 0; }
+.institution-page .contact-confirmation { margin-top: 2rem; }
+.institution-page .contact-confirmation > :is(h3, p, a) { margin-top: 1.25rem; }
+.institution-page .contact-confirmation h3:focus { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+.institution-page .contact-map { height: 18rem; margin-top: 2rem; overflow: hidden; border: 1px solid var(--color-border); border-radius: .75rem; background: var(--color-soft-green); }
+@media (min-width: 640px) {
+  .institution-page .gallery-grid { columns: 2; }
+  .institution-page :is(.contact-details, .contact-message, .leadership-copy) { padding: 2rem; }
+}
+@media (min-width: 768px) {
+  .institution-page :is(.purpose-grid, .leadership-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .institution-page .purpose-grid { gap: 3rem; }
+  .institution-page .institution-partners { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .institution-page .gallery-viewer { padding: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .institution-page .about-story-layout { grid-template-columns: minmax(0, 7fr) minmax(0, 6fr); gap: 3rem; }
+  .institution-page .contact-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
+  .institution-page .gallery-grid { columns: 3; }
+  .institution-page .contact-map { height: 25rem; }
+}

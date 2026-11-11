@@ -19,7 +19,7 @@ export function LegalPage({
           <p className="text-sm text-muted-foreground mb-8">Last updated: {updated}</p>
         )}
         {intro && <p className="text-lg text-foreground/80 leading-relaxed mb-10">{intro}</p>}
-        <div className="space-y-8 text-foreground/80 leading-relaxed [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-primary [&_h2]:mb-3 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2">
+        <div className="space-y-8 text-foreground/80 leading-relaxed [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-primary [&_h2]:mb-3 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_a[href^='mailto:']]:[overflow-wrap:anywhere]">
           {children}
         </div>
       </section>

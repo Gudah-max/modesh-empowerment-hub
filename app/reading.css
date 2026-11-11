@@ -1,0 +1,51 @@
+/* Phase 4A: scoped FAQ/Updates reading surfaces, using the approved V2 tokens. */
+.reading-page .reading-content { padding-top: 0; }
+.reading-page :is(p, h1, h2, h3, a, time) { overflow-wrap: anywhere; }
+.reading-page .reading-help { padding: 1.5rem; border-radius: .75rem; background: var(--color-soft-green); }
+.reading-page .reading-help p { color: var(--color-muted-foreground); margin-block: 1rem; max-width: 65ch; }
+.reading-page .reading-help p a, .reading-page .faq-answer p a { color: var(--color-primary); text-decoration: underline; text-underline-offset: .2em; }
+.reading-page .reading-help h2 { font-size: var(--text-card); }
+.reading-page .faq-layout { display: grid; gap: 3rem; align-items: start; }
+.reading-page .faq-topics { display: grid; padding-block: .75rem; border-block: 1px solid var(--color-border); }
+.reading-page .faq-topics a { display: flex; align-items: center; min-height: 3rem; padding-block: .75rem; color: var(--color-primary); text-decoration: underline; text-underline-offset: .25em; font-weight: 600; }
+.reading-page .faq-answers { min-width: 0; max-width: 72ch; }
+.reading-page .faq-answers > section + section { margin-top: 3rem; }
+.reading-page .faq-answer { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.reading-page .faq-answer h3 { font-family: var(--font-playfair), Georgia, serif; color: var(--color-forest); font-size: var(--text-card); font-weight: 600; line-height: 1.25; }
+.reading-page .faq-answer p { margin-top: .75rem; color: var(--color-muted-foreground); }
+.updates-filters { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.5rem; }
+.updates-filters button { min-height: 3rem; padding: .75rem 1.25rem; border: 1px solid var(--color-control-border); border-radius: 2rem; background: var(--color-surface); color: var(--color-muted-foreground); font-weight: 600; transition: background-color 150ms, color 150ms; }
+.updates-filters button:hover { background: var(--color-soft-green); }
+.updates-filters button[aria-pressed="true"] { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-primary-foreground); }
+.updates-count { color: var(--color-muted-foreground); margin-bottom: 1.5rem; }
+.updates-grid { display: grid; gap: 1.5rem; }
+.update-card { min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--color-border); border-radius: .75rem; background: var(--color-surface); overflow: hidden; }
+.update-card--text { align-self: start; }
+.update-card--text :is(.update-card-body, p) { flex: 0 1 auto; }
+.update-card-photo { aspect-ratio: 4 / 3; overflow: hidden; }
+.update-card-photo img { width: 100%; height: 100%; object-fit: cover; }
+.update-card-body { min-width: 0; padding: 1.5rem; display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+.update-category { display: inline-block; border-radius: 2rem; background: var(--color-tag); color: var(--color-tag-foreground); padding: .125rem .75rem; font-size: .875rem; font-weight: 600; }
+.update-card :is(h2, h3) { margin-block: .75rem; font-family: var(--font-playfair), Georgia, serif; color: var(--color-forest); font-size: var(--text-card); font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.update-card p { flex: 1; color: var(--color-muted-foreground); margin-bottom: 1rem; overflow-wrap: anywhere; }
+.update-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; color: var(--color-muted-foreground); font-size: .875rem; margin-top: 1rem; }
+.update-meta > span { display: inline-flex; align-items: flex-start; gap: .5rem; min-width: 0; }
+.update-meta svg { width: 1rem; height: 1rem; flex-shrink: 0; margin-top: .2rem; }
+.reading-page .update-detail { max-width: 74ch; margin-inline: auto; }
+.reading-page .update-detail > .button-link { margin-bottom: 2rem; }
+.reading-page .update-detail h1 { margin-top: 1rem; }
+.reading-page .update-detail .update-meta { margin-block: 1.5rem; }
+.reading-page .update-excerpt { font-size: 1.125rem; color: var(--color-muted-foreground); margin-block: 1.5rem 2rem; }
+.reading-page .update-cover { width: 100%; height: auto; border-radius: .75rem; margin-bottom: 2rem; }
+.reading-page .update-body { line-height: 1.75; }
+.reading-page .update-body :is(h2, h3) { color: var(--color-forest); }
+.reading-page .update-body a { text-underline-offset: .25em; }
+.reading-page .update-end { padding-top: 2rem; margin-top: 3rem; border-top: 1px solid var(--color-border); }
+.reading-page .update-state { max-width: 65ch; }
+.reading-page .update-state .home-actions { margin-top: 1.5rem; }
+@media (min-width: 768px) { .updates-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) {
+  .reading-page .faq-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 4rem; }
+  .updates-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reading-page .reading-help { padding: 2rem; }
+}
