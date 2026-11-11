@@ -1,3 +1,4 @@
+import { SITE_URL, SOCIAL_IMAGE } from '@/lib/metadata';
 import type {Metadata} from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css'; // Global styles
@@ -19,10 +20,9 @@ const inter = Inter({
   display: 'swap',
 });
 
-const siteUrl = 'https://modeshempowermenthub.org';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Modesh Empowerment Hub',
     template: '%s | Modesh Empowerment Hub',
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
+    url: SITE_URL,
     siteName: 'Modesh Empowerment Hub',
     title: 'Modesh Empowerment Hub',
     description: 'Empowering individuals through the art of baking and community building in Kisumu, Kenya.',
-    images: [{ url: '/opengraph-image.jpeg', alt: 'Modesh Empowerment Hub' }],
+    images: [SOCIAL_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Modesh Empowerment Hub',
     description: 'Empowering individuals through the art of baking and community building in Kisumu, Kenya.',
-    images: ['/opengraph-image.jpeg'],
+    images: [{ url: SOCIAL_IMAGE.url, alt: SOCIAL_IMAGE.alt }],
   },
 };
 
@@ -50,8 +50,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col" suppressHydrationWarning>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <Header />
-        <main className="flex-1 shrink-0">
+        <main id="main-content" tabIndex={-1} className="flex-1 shrink-0">
           {children}
         </main>
         <Footer />

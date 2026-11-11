@@ -1,0 +1,19 @@
+{
+  "name": "modesh-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sanity Studio for Modesh Empowerment Hub — Updates & Opportunities. Installed and deployed separately from the website; the Netlify build never touches this folder.",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "manage": "sanity manage"
+  },
+  "dependencies": {
+    "@sanity/vision": "^6.12.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "sanity": "^6.12.0",
+    "styled-components": "^6.1.19"
+  }
+}

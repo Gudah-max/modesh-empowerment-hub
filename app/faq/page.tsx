@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import { LegalPage } from '@/components/LegalPage';
+import { Section } from '@/components/ui/Section';
+import { PageIntro } from '@/components/ui/PageIntro';
+import { ButtonLink } from '@/components/ui/ButtonLink';
+import { pageMetadata } from '@/lib/metadata';
+import '../training.css';
+import '../reading.css';
 
-export const metadata = {
-  title: 'FAQ',
-  description: 'Answers to common questions about enrolling in Modesh Empowerment Hub programs.',
-};
+export const metadata = pageMetadata('/faq', 'FAQ', 'Answers to common questions about enrolling in Modesh Empowerment Hub programs.');
 
 const faqs = [
   {
@@ -34,25 +36,50 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  const groups = [
+    { id: 'training', title: 'Training and enrollment', items: faqs.slice(0, 3) },
+    { id: 'visiting', title: 'Visiting the Hub', items: faqs.slice(3, 5) },
+    { id: 'support', title: 'Support beyond training', items: faqs.slice(5) },
+  ];
   return (
-    <LegalPage
-      title="Frequently Asked Questions"
-      intro="Answers to the questions we hear most often. If you don't see yours here, we're happy to help."
-    >
-      {faqs.map((item) => (
-        <div key={item.q}>
-          <h2>{item.q}</h2>
-          <p>{item.a}</p>
+    <div className="training-page reading-page">
+      <Section>
+        <PageIntro title="Frequently Asked Questions">
+          <p>Answers to the questions we hear most often. If you don&apos;t see yours here, we&apos;re happy to help.</p>
+        </PageIntro>
+      </Section>
+      <Section className="reading-content">
+        <div className="faq-layout">
+          <nav aria-label="FAQ topics" className="faq-topics">
+            {groups.map(group => <a key={group.id} href={`#${group.id}`}>{group.title}</a>)}
+            <a href="#questions">Still have questions?</a>
+          </nav>
+          <div className="faq-answers">
+            {groups.map(group => (
+              <section key={group.id} id={group.id} aria-labelledby={`${group.id}-heading`}>
+                <h2 className="section-title" id={`${group.id}-heading`}>{group.title}</h2>
+                {group.items.map(item => (
+                  <div className="faq-answer" key={item.q}>
+                    <h3>{item.q}</h3>
+                    <p>{item.a}</p>
+                    {item === faqs[1] && <ButtonLink href="/programs" variant="inline">Explore Programs</ButtonLink>}
+                    {item === faqs[2] && <>
+                      <p>Submitting an enrollment form is an expression of interest, not a guarantee of a place. Read our <Link href="/terms">Terms of Service</Link> and <Link href="/privacy">Privacy Policy</Link>.</p>
+                      <ButtonLink href="/enroll" variant="inline">Start your application</ButtonLink>
+                    </>}
+                    {item === faqs[3] && <ButtonLink href="/contact" variant="inline">Contact and directions</ButtonLink>}
+                  </div>
+                ))}
+              </section>
+            ))}
+            <section id="questions" aria-labelledby="questions-heading" className="reading-help">
+              <h2 className="section-title" id="questions-heading">Still have questions?</h2>
+              <p>Reach out any time at <a href="mailto:info@modeshempowermenthub.org">info@modeshempowermenthub.org</a>, or <Link href="/enroll">start your application</Link>.</p>
+              <ButtonLink href="/contact">Contact Modesh</ButtonLink>
+            </section>
+          </div>
         </div>
-      ))}
-      <div>
-        <h2>Still have questions?</h2>
-        <p>
-          Reach out any time at{' '}
-          <a href="mailto:info@modeshempowermenthub.org">info@modeshempowermenthub.org</a>, or{' '}
-          <Link href="/enroll">start your application</Link>.
-        </p>
-      </div>
-    </LegalPage>
+      </Section>
+    </div>
   );
 }

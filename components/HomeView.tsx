@@ -1,214 +1,59 @@
-"use client";
-
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, Leaf } from 'lucide-react';
-
-const heroImages = [
-  { src: "/images/hero-3.jpeg", alt: "A display of elegant multi-tier wedding cakes decorated by Modesh Empowerment Hub students" },
-  { src: "/images/hero-2.jpeg", alt: "Modesh bakers in aprons plating fresh pastries at an event" },
-  { src: "/images/hero-4.jpeg", alt: "Modesh Empowerment Hub trainees seated together at a baking masterclass" },
-  { src: "/images/hero-9.jpeg", alt: "A Modesh instructor leading a wedding cake masterclass" },
-  { src: "/images/hero-5.jpeg", alt: "A trainee receiving a hand mixer during a Modesh graduation ceremony" },
-  { src: "/images/hero-6.jpeg", alt: "A student receiving baking tools at a Modesh wedding cake masterclass" }
-];
-
-const partners = [
-  { name: 'GIZ', src: '/images/giz_logo.png' },
-  { name: 'FAO', src: '/images/fao_logo.png' },
-  { name: 'SHOFCO', src: '/images/shofco_logo.png' },
-  { name: 'NITA', src: '/images/nita_logo.png' },
-  { name: 'SOMO', src: '/images/somo_logo.png' },
-  { name: 'KIDI', src: '/images/kenya_industrial_development_institute_logo.png' },
-  { name: 'World Travel', src: '/images/world_travel_logo.png' },
-  { name: 'Cloud Solution', src: '/images/cloud_solution_logo.png' },
-];
+import { ArrowRight } from 'lucide-react';
+import { Section } from './ui/Section';
+import { ButtonLink } from './ui/ButtonLink';
+import { partners, homeFeatures } from '@/lib/content/home';
 
 export function HomeView() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  return (<>
+    <Section aria-labelledby="home-title">
+      <div className="home-hero"><div>
+        <h1 id="home-title">Where Baking Builds Dignified Lives.</h1>
+        <p className="section-lead">Hands-on baking and entrepreneurship training in Manyatta, Kisumu. Develop practical skills, build confidence, and explore new opportunities.</p>
+        <div className="home-actions"><ButtonLink href="/enroll">Enroll Now <ArrowRight size={18} aria-hidden="true" /></ButtonLink><ButtonLink href="/programs" variant="secondary">Explore Programs</ButtonLink></div>
+      </div><div className="hero-photo">
+        <Image src="/images/hero-9.jpeg" alt="A baking demonstration with tiered cakes and seated participants" fill priority sizes="(min-width: 1280px) 691px, (min-width: 1024px) 56vw, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" className="object-cover" />
+      </div></div>
+    </Section>
+    <Section className="bg-soft-green" aria-labelledby="programs-title">
+      <div className="section-heading-row"><div><h2 id="programs-title" className="section-title">Find your place in baking.</h2><p className="section-lead">Discover our structured courses designed to take you from basics to professional mastery.</p></div><ButtonLink href="/programs" variant="inline">Explore all programs <ArrowRight size={18} aria-hidden="true" /></ButtonLink></div>
+      <div className="course-preview-grid">{homeFeatures.map(program => (
+        <article key={program.title} className="course-preview">
+          <div className="course-preview-photo"><Image src={program.img} alt={program.title} fill sizes="(min-width: 1280px) 389px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, 92vw" className="object-cover" /></div>
+          <div className="course-preview-body"><span className="course-level">{program.tag}</span><h3>{program.title}</h3><p>{program.desc}</p><ButtonLink href="/programs#courses" variant="inline" aria-label={'Explore programs: ' + program.title}>Explore programs <ArrowRight size={18} aria-hidden="true" /></ButtonLink></div>
+        </article>
+      ))}</div>
+    </Section>
+    <Section aria-labelledby="learning-title"><div className="learning-layout">
+      <div><h2 id="learning-title" className="section-title">Baking skills. A foundation for independence.</h2><p className="section-lead">Modesh Empowerment Hub helps individuals learn comprehensive baking methods, fostering independence and entrepreneurial success.</p>
+        <ul className="learning-list"><li>Practical, hands-on culinary training.</li><li>Business management and financial literacy.</li></ul>
+        <ButtonLink href="/programs#enrollment" variant="inline">See how to join Modesh <ArrowRight size={18} aria-hidden="true" /></ButtonLink>
+      </div><div className="impact-copy lg:mt-0"><h3>Our Impact</h3><p>Every learner who walks through our doors leaves with more than a skill — they leave with confidence, a livelihood, and a renewed sense of dignity. From first-time bakers to community entrepreneurs, our graduates are building sustainable futures for themselves and their families across Kisumu and beyond.</p><ButtonLink href="/about" variant="inline" className="mt-4">Our mission and approach <ArrowRight size={18} aria-hidden="true" /></ButtonLink></div>
+    </div></Section>
+    <Section className="bg-surface border-y border-border" aria-labelledby="story-title"><div className="story-layout">
+      <Image src="/images/about_image.jpg" alt="A person standing behind decorated cakes" width={800} height={708} sizes="(min-width: 1280px) 480px, (min-width: 1024px) 40vw, 92vw" className="story-photo" />
+      <div className="story-copy"><h2 id="story-title" className="section-title">The story behind Modesh.</h2>
+        <p>I was raised by a widow in a family of twelve children the 11th born. My father passed away when I was still young, leaving my mother to carry us alone with quiet strength and unwavering determination.</p>
+        <p>Those experiences shaped everything. I did not just observe hardship I lived it. I understood the emotional and financial strain vulnerable women face, and how easily dignity can be lost when opportunities are limited.</p>
+        <p>I founded Modesh Bakers as a starting point, and as it grew, I saw the deeper need: women who, like my mother, simply needed a chance to learn, earn, and rebuild their dignity. That realization gave birth to Modesh Empowerment Hub.</p>
+        <p className="font-semibold text-forest">- Founder MEH</p><ButtonLink href="/about" variant="inline" className="mt-4">Our story and mission <ArrowRight size={18} aria-hidden="true" /></ButtonLink>
+      </div>
+    </div></Section>
+    <Section aria-labelledby="student-life-title">
+      <div className="section-heading-row"><div><h2 id="student-life-title" className="section-title">See the learning. See the work.</h2><p className="section-lead">Baking, making and learning together at Modesh.</p></div><ButtonLink href="/gallery" variant="inline">Explore student life <ArrowRight size={18} aria-hidden="true" /></ButtonLink></div>
+      <div className="student-photo-grid"><div className="student-photo"><Image src="/images/hero_empoering_communities_small_image.jpeg" alt="People preparing food together in a kitchen" fill sizes="(min-width: 1280px) 596px, (min-width: 640px) 46vw, 92vw" className="object-cover" /></div><div className="student-photo"><Image src="/images/hero-4.jpeg" alt="Participants seated together during a baking session" fill sizes="(min-width: 1280px) 596px, (min-width: 640px) 46vw, 92vw" className="object-cover" /></div></div>
+    </Section>
+    <Section className="bg-surface border-t border-border" aria-labelledby="partners-title">
+      <div className="section-heading-row"><h2 id="partners-title" className="section-title">In partnership with</h2><ButtonLink href="/team" variant="inline">People &amp; Partners <ArrowRight size={18} aria-hidden="true" /></ButtonLink></div>
+      <ul className="partner-grid">{partners.map(partner => <li key={partner.name}><div className="partner-logo"><Image src={partner.src} alt={partner.name} fill sizes="(min-width: 768px) 240px, 120px" className="object-contain" /></div></li>)}</ul>
+    </Section>
+  </>);
+}
 
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  return (
-    <div className="w-full h-full motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500">
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div
-            className="lg:col-span-8 relative rounded-lg overflow-hidden min-h-[520px] lg:min-h-[600px] flex items-end p-8 sm:p-12"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            {heroImages.map((image, index) => (
-              <Image
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                fill
-                className={`object-cover absolute inset-0 -z-10 transition-opacity duration-1000 ${
-                  index === currentImageIndex ? 'opacity-100 motion-safe:animate-kenburns' : 'opacity-0'
-                }`}
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                priority={index === 0}
-              />
-            ))}
-            {/* Directional scrim: dark where the text sits, clear elsewhere */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/40 to-transparent" />
-
-            <div className="max-w-xl text-white relative z-10">
-              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-7 drop-shadow-lg">
-                Where Baking Builds Dignified Lives
-              </h1>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/enroll" className="bg-primary text-primary-foreground px-7 py-3.5 rounded font-medium hover:bg-primary/90 active:scale-[0.98] transition-all shadow-lg outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
-                  Enroll Now
-                </Link>
-                <Link href="/programs" className="bg-white/10 backdrop-blur-sm border border-white/70 text-white px-7 py-3.5 rounded font-medium hover:bg-white/20 active:scale-[0.98] transition-all outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
-                  Learn More
-                </Link>
-              </div>
-            </div>
-
-            {/* Slide indicators */}
-            <div className="absolute bottom-6 right-6 z-10 flex gap-2.5">
-              {heroImages.map((image, index) => (
-                <button
-                  key={image.src}
-                  onClick={() => setCurrentImageIndex(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                  aria-current={index === currentImageIndex}
-                  className={`h-2 rounded-full transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
-                    index === currentImageIndex ? 'w-7 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-          
-          <div className="lg:col-span-4 bg-[#f1f4f0] rounded-lg p-8 flex flex-col justify-between border border-border/50">
-            <div>
-               <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                  <Leaf className="w-5 h-5"/>
-               </div>
-               <h2 className="font-serif text-3xl font-semibold mb-4 text-primary leading-tight">Empowering Communities</h2>
-               <p className="text-foreground/80 mb-6 leading-relaxed">
-                 Modesh Empowerment Hub helps individuals learn comprehensive baking methods, 
-                 fostering independence and entrepreneurial success.
-               </p>
-            </div>
-            <div>
-              <div className="relative h-48 w-full rounded mb-6 overflow-hidden">
-                <Image
-                  src="/images/hero_empoering_communities_small_image.jpeg"
-                  alt="Empowering Communities"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <Link href="/about" className="flex items-center gap-2 font-semibold uppercase tracking-wider text-sm hover:text-primary active:scale-[0.98] transition-all group w-fit outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1 -ml-1">
-                Our Story <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust strip — institutional partners, auto-scrolling */}
-      <section className="border-y border-border/50 bg-background py-10">
-        <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
-          In partnership with
-        </p>
-        <div className="group relative overflow-hidden">
-          {/* Edge fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-background to-transparent" />
-
-          <div className="flex w-max items-center motion-safe:animate-marquee motion-safe:group-hover:[animation-play-state:paused] motion-reduce:flex-wrap motion-reduce:w-full motion-reduce:justify-center">
-            {[...partners, ...partners].map((partner, i) => (
-              <div
-                key={i}
-                aria-hidden={i >= partners.length}
-                className={`relative h-12 w-28 shrink-0 mx-8 sm:mx-10 ${i >= partners.length ? 'motion-reduce:hidden' : ''}`}
-              >
-                <Image src={partner.src} alt={partner.name} fill className="object-contain" sizes="112px" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/*
-        Impact section — qualitative for now.
-        TODO: reinstate headline numbers (graduates empowered, employment rate,
-        community bakeries started) once real, sourced figures are available.
-      */}
-      <section className="bg-white py-20 lg:py-24 border-y border-border/50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl font-semibold text-primary mb-6">Our Impact</h2>
-          <p className="text-lg text-foreground/80 leading-relaxed">
-            Every learner who walks through our doors leaves with more than a skill — they leave with confidence, a
-            livelihood, and a renewed sense of dignity. From first-time bakers to community entrepreneurs, our graduates
-            are building sustainable futures for themselves and their families across Kisumu and beyond.
-          </p>
-        </div>
-      </section>
-
-      {/* Featured Programs */}
-      <section className="py-20 lg:py-24 bg-background">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-               <h2 className="font-serif text-4xl font-semibold text-primary mb-4">Featured Programs</h2>
-               <p className="text-foreground/80 text-lg">Discover our structured courses designed to take you from basics to professional mastery.</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-               {[
-                 {
-                   title: 'Bread Making',
-                   desc: 'Master the art of artisanal breads, from sourdough starters to classic baguettes in a supportive environment.',
-                   img: '/images/bread_making.jpeg',
-                   tag: 'Beginner'
-                 },
-                 {
-                   title: 'Pastry Arts',
-                   desc: 'Learn delicate techniques for creating exquisite tarts, eclairs, and complex layered desserts.',
-                   img: '/images/pastry_arts.jpeg',
-                   tag: 'Intermediate'
-                 },
-                 {
-                   title: 'Cake Decoration',
-                   desc: 'Advanced finishing techniques, fondant work, and structural cake design for special events.',
-                   img: '/images/cake_decoration.jpeg',
-                   tag: 'Advanced'
-                 }
-               ].map((program, i) => (
-                  <div key={i} className="bg-white border border-border rounded-lg overflow-hidden group shadow-sm flex flex-col">
-                     <div className="relative h-64 w-full bg-surface-variant overflow-hidden">
-                        <Image src={program.img} alt={program.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" />
-                        <div className="absolute top-4 left-4 bg-[#c0edcf] text-[#002112] px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm">
-                           {program.tag}
-                        </div>
-                     </div>
-                     <div className="p-8 flex flex-col flex-1">
-                        <h3 className="font-serif text-2xl font-semibold text-primary mb-3">{program.title}</h3>
-                        <p className="text-foreground/70 mb-8 flex-1 leading-relaxed">{program.desc}</p>
-                        <Link href="/programs" className="text-sm font-semibold uppercase tracking-wider text-left hover:text-primary transition-colors flex items-center gap-2 group/btn w-fit outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1 -ml-1">
-                           View Details <ArrowRight className="w-4 h-4 opacity-0 -ml-4 group-hover/btn:opacity-100 group-hover/btn:ml-0 transition-all" />
-                        </Link>
-                     </div>
-                  </div>
-               ))}
-            </div>
-         </div>
-      </section>
-    </div>
-  );
+export function HomeEnrollment() {
+  return (<Section className="home-close" aria-labelledby="enrollment-title">
+    <h2 id="enrollment-title" className="section-title">Your next chapter starts here.</h2><p className="section-lead">Explore baking training at Modesh in Kisumu. Apply online or contact us with your questions.</p>
+    <div className="home-actions"><ButtonLink href="/enroll">Enroll Now <ArrowRight size={18} aria-hidden="true" /></ButtonLink><ButtonLink href="/contact" variant="secondary">Contact Modesh</ButtonLink></div>
+    <div className="close-contact"><a href="tel:+254726844169">Call +254-726844169</a><a href="https://wa.me/254726844169" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a><a href="/faq">Frequently asked questions</a></div>
+  </Section>);
 }

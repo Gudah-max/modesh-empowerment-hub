@@ -1,0 +1,205 @@
+{
+  "aboutParagraphs": [
+    "I was raised by a widow in a family of twelve children the 11th born. My father passed away when I was still young, leaving my mother to carry us alone with quiet strength and unwavering determination.",
+    "Those experiences shaped everything. I did not just observe hardship I lived it. I understood the emotional and financial strain vulnerable women face, and how easily dignity can be lost when opportunities are limited.",
+    "I founded Modesh Bakers as a starting point, and as it grew, I saw the deeper need: women who, like my mother, simply needed a chance to learn, earn, and rebuild their dignity. That realization gave birth to Modesh Empowerment Hub.",
+    "- Founder MEH",
+    "We are driven by a dual mandate: to provide top-tier professional training and to foster a resilient, supportive community.",
+    "To equip marginalized individuals with comprehensive baking and entrepreneurial skills in a dignified, supportive environment, enabling them to secure sustainable livelihoods and build self-reliance.",
+    "A community where every individual has the opportunity, skills, and confidence to thrive economically and contribute meaningfully to society, transforming their narratives from survival to success."
+  ],
+  "team": [
+    {
+      "name": "Moureen Odera",
+      "role": "DIRECTOR",
+      "desc": "Moureen brings over 15 years of experience in community development and vocational training, steering Modesh with a steady hand and a compassionate heart.",
+      "img": "/images/odera_moureen_director.jpg"
+    },
+    {
+      "name": "A. Odera",
+      "role": "CEO",
+      "desc": "With a background in enterprise management, A. Odera ensures the hub remains financially sustainable while maximizing its social impact in the community.",
+      "img": "/images/odera_a_ceo.jpg"
+    }
+  ],
+  "partners": [
+    {
+      "name": "GIZ",
+      "src": "/images/giz_logo.png"
+    },
+    {
+      "name": "SOMO",
+      "src": "/images/somo_logo.png"
+    },
+    {
+      "name": "SHOFCO",
+      "src": "/images/shofco_logo.png"
+    },
+    {
+      "name": "FAO",
+      "src": "/images/fao_logo.png"
+    },
+    {
+      "name": "NITA",
+      "src": "/images/nita_logo.png"
+    },
+    {
+      "name": "World Travel",
+      "src": "/images/world_travel_logo.png"
+    },
+    {
+      "name": "KIDI",
+      "src": "/images/kenya_industrial_development_institute_logo.png"
+    },
+    {
+      "name": "Cloud Solution",
+      "src": "/images/cloud_solution_logo.png"
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/images/2000_69e3e50d204b9.jpeg",
+      "thumb": "/images/800_69e3e50d204b9.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e3e52038864.jpeg",
+      "thumb": "/images/800_69e3e52038864.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/2000_69e3e548ab358.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/2000_69e4aa1524e17.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e4aa22b5faf.jpeg",
+      "thumb": "/images/800_69e4aa22b5faf.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/2000_69e4aa52dc101.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e4aa52ded35.jpeg",
+      "thumb": "/images/800_69e4aa52ded35.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/2000_69e4abfa84db8.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/2000_69e4abfa86d6f.jpeg",
+      "thumb": "/images/800_69e4abfa86d6f.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e4abfa8a04b.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/2000_69e4abfa8b6c0.jpeg",
+      "thumb": "/images/800_69e4abfa8b6c0.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/2000_69e4abfa8cc50.jpeg",
+      "thumb": "/images/800_69e4abfa8cc50.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e4abfa8e21e.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/2000_69e4abfa8f794.jpeg",
+      "thumb": "/images/800_69e4abfa8f794.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/2000_69e4abfa92390.jpeg",
+      "thumb": "/images/800_69e4abfa92390.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e4abfa938c7.jpeg",
+      "thumb": "/images/800_69e4abfa938c7.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/2000_69e4abfa9502f.jpeg",
+      "thumb": "/images/800_69e4abfa9502f.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/2000_69e4abfa97b47.jpeg",
+      "thumb": "/images/800_69e4abfa97b47.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/2000_69e4abfa994b6.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/800_69e4aa52dd934.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/800_69e4abfa88694.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/800_69e4abfa9be84.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/800_69e652c811435.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/artisan_bread_making.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/bakery_enterprenuership.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/bread_making.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/cake_decoration.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/pastry_art.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/pastry_arts.jpeg",
+      "category": "In the Kitchen"
+    },
+    {
+      "src": "/images/proffesional_baking.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/hero-1.jpeg",
+      "category": "Masterpieces"
+    },
+    {
+      "src": "/images/hero-7.jpeg",
+      "category": "Graduation"
+    },
+    {
+      "src": "/images/hero-8.jpeg",
+      "category": "Graduation"
+    }
+  ]
+}

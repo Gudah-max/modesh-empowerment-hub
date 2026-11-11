@@ -1,7 +1,18 @@
 node_modules/
 .next/
 coverage/
+*.tsbuildinfo
 .DS_Store
 *.log
 .env*
 !.env.example
+
+# Sanity Studio (studio/ has its own install; never built by Netlify)
+studio/dist/
+.sanity/
+
+# Local Phase 3A screenshots and verification logs
+artifacts/phase-3a/
+artifacts/phase-3b/
+artifacts/phase-3c/
+artifacts/phase-4a/

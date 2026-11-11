@@ -1,43 +1,35 @@
 # Modesh Empowerment Hub
 
-Marketing website for **Modesh Empowerment Hub** — a baking and entrepreneurship training organization in Kisumu, Kenya, empowering marginalized individuals to build sustainable livelihoods.
+Next.js 15 and React 19 website for baking and entrepreneurship training in Kisumu, Kenya.
 
-## Tech stack
+## Development and production
 
-- [Next.js 15](https://nextjs.org/) (App Router) + React 19
-- TypeScript
-- Tailwind CSS v4 (CSS-first `@theme` config in `app/globals.css`)
-- [lucide-react](https://lucide.dev/) icons
-- Deployed on [Netlify](https://www.netlify.com/) via `@netlify/plugin-nextjs`
+Run `npm ci`, then `npm run dev` for development. Run `npm run lint`,
+`npm run typecheck`, and `npm run build` before serving with `npm start`.
+Netlify runs `npm run build`, publishes `.next`, and uses `@netlify/plugin-nextjs`.
 
-## Local development
+## Forms and safe tests
 
-```bash
-npm install
-npm run dev
-```
+Contact and Enrollment use Netlify Forms. Keep `public/__forms.html` field names
+in sync with the React forms. Registration is separate from storage and notification delivery.
+Do not submit forms during ordinary QA. Browser suites intercept writes and reject public targets.
 
-Open [http://localhost:3000](http://localhost:3000).
+Python requirements are in `tests/requirements.txt`; install Playwright Chromium separately.
+After building, `npm test` runs the intercepted local forms suite. Other browser suites
+accept `--base-url http://127.0.0.1:3100`. The test runner
+`python -B tests/run_phase4a_checks.py` accepts `build`, `unit`, `browser`, `states`,
+and `inspect`. Browser checks require a loopback production server on port 3100.
+States and inspection also require `node tests/fixtures/cms-preview.cjs` on port 3101.
+Generated evidence belongs only in ignored `artifacts/phase-4a/`; never publish it.
+The fixture launcher and tests are local tools and must never be deployed as a server.
 
-Other scripts:
+## Deferred Updates (Option B)
 
-```bash
-npm run build   # production build
-npm run start   # serve the production build
-npm run lint    # run ESLint
-```
+Updates remains deferred: `updatesPublicReleaseEnabled` is false. Navigation and
+sitemap exclude Updates; retained routes use noindex. CMS source and synthetic
+fixtures remain available for future separately authorized development.
+No CMS setup or publishing is part of this release.
 
-## Project structure
-
-- `app/` — routes (App Router). Each `page.tsx` sets metadata and renders a view component.
-- `components/` — view components (`HomeView`, `AboutView`, `ProgramsView`, `TeamView`, `GalleryView`, `ContactView`, `EnrollView`) plus `Header`, `Footer`, and shared pieces.
-- `public/images/` — image assets.
-- `app/globals.css` — design tokens and base styles.
-
-## Forms
-
-The **Contact** and **Enroll** forms submit through [Netlify Forms](https://docs.netlify.com/forms/setup/). Form definitions are mirrored in `public/__forms.html` so Netlify's build-time detection registers them; the live React forms post to `/` via `fetch`. Configure email notifications for new submissions in the Netlify dashboard (Forms → Settings & notifications).
-
-## Environment variables
-
-- `NEXT_PUBLIC_GA_ID` (optional) — a Google Analytics 4 measurement ID (`G-XXXXXXXXXX`). When set, analytics is loaded automatically; when unset, no analytics is loaded.
+Optional website environment variables are `NEXT_PUBLIC_GA_ID`,
+`NEXT_PUBLIC_SANITY_PROJECT_ID`, and `NEXT_PUBLIC_SANITY_DATASET`.
+Keep credentials and environment files out of Git. Public-prefixed values are browser-visible.
